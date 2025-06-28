@@ -49,9 +49,34 @@ void printReverseNBackTrack(int i, int n)
     cout << i << endl;
 }
 
+//Sum of first N integers using Parameters
+void NnumbersSum(int N, int sum){
+    //your code goes here
+    if(N<1) 
+    {
+        cout << sum << endl;
+        return;
+    }
+    sum += N;
+    NnumbersSum(N-1, sum);
+}
+
+//Sum of first N integers using return
+int NnumbersSum1(int N, int sum){
+    //your code goes here
+    if(N<1) 
+    {
+        return sum;
+    }
+    sum += N;
+    return NnumbersSum1(N-1, sum);
+}
 
 int main()
 {
+    int sum = NnumbersSum1(6, 0);
+    cout << sum << endl;
+
     // printName("Ram", 1,  7);
 
     // printN(1, 113);
@@ -61,6 +86,8 @@ int main()
     // printNBackTrack(1, 3);
 
     // printReverseNBackTrack(1, 3);
+
+    // NnumbersSum(3, 0);
 
 
 
