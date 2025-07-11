@@ -61,21 +61,40 @@ void NnumbersSum(int N, int sum){
     NnumbersSum(N-1, sum);
 }
 
-//Sum of first N integers using return
+//Sum of first N integers using parameters
 int NnumbersSum1(int N, int sum){
     //your code goes here
     if(N<1) 
     {
+        cout << sum << endl;
         return sum;
     }
-    sum += N;
-    return NnumbersSum1(N-1, sum);
+    return NnumbersSum1(N-1, sum+N);
+}
+
+//Sum of first N integers in functional way.
+int NnumbersSum2(int N)
+{
+    if(N<1) return 0;
+    return (N + NnumbersSum2(N-1));
+}
+
+//Factorial of N numbers
+int factorial(int N)
+{
+    if(N<1) return 1;
+    return N * factorial(N-1);
 }
 
 int main()
 {
-    int sum = NnumbersSum1(6, 0);
-    cout << sum << endl;
+    int fact = factorial(6);
+    cout << fact << endl;
+
+    // int sum = NnumbersSum2(6);
+    // cout << sum << endl;
+    
+    // NnumbersSum1(6, 0);
 
     // printName("Ram", 1,  7);
 
