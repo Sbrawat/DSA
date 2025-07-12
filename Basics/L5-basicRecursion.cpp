@@ -86,10 +86,72 @@ int factorial(int N)
     return N * factorial(N-1);
 }
 
+//Reverse an Array
+void reverse(int arr[], int left, int right){
+    if(left >= right) return;
+    swap(arr[left], arr[right]);
+    reverse(arr, left+1, right-1);
+}
+
+//Reverse an Array with a single pointer
+void reverse1(int arr[], int n, int left){
+    if(left >= n-left-1) return;
+
+    swap(arr[left], arr[n-left-1]);
+
+    reverse1(arr, n, left+1);
+}
+
+bool checkPalindrome(string &s, int left, int right)
+{
+    
+    if(left >= right) return true;
+
+    if(s[left] == s[right]) return checkPalindrome(s, left+1, right-1);
+
+    return false;
+}
+
 int main()
 {
-    int fact = factorial(6);
-    cout << fact << endl;
+    string s = "MADAM";
+    bool result = checkPalindrome(s, 0, 4);
+    cout << result << endl;
+
+    // int arr0[9] = {1,2,3,4,5,6,7,8,9};
+    // int arr1[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    // reverse1(arr0, 9, 0);
+    // reverse1(arr1, 10, 0);
+    
+    // for(int i = 0; i<10; i++)
+    // {
+    //     cout << arr0[i] << " ";
+    // }
+    // cout << endl;
+    // for(int i = 0; i<10; i++)
+    // {
+    //     cout << arr1[i] << " ";
+    // }
+    // cout << endl;
+
+    // reverse(arr0, 0, 8);
+    // reverse(arr1, 0, 9);
+    
+    // for(int i = 0; i<10; i++)
+    // {
+    //     cout << arr0[i] << " ";
+    // }
+    // cout << endl;
+    // for(int i = 0; i<10; i++)
+    // {
+    //     cout << arr1[i] << " ";
+    // }
+    // cout << endl;
+
+
+    // int fact = factorial(6);
+    // cout << fact << endl;
 
     // int sum = NnumbersSum2(6);
     // cout << sum << endl;
