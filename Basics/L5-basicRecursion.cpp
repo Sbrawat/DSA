@@ -104,7 +104,6 @@ void reverse1(int arr[], int n, int left){
 
 bool checkPalindrome(string &s, int left, int right)
 {
-    
     if(left >= right) return true;
 
     if(s[left] == s[right]) return checkPalindrome(s, left+1, right-1);
@@ -112,11 +111,45 @@ bool checkPalindrome(string &s, int left, int right)
     return false;
 }
 
+bool checkPalindrome1(string &s, int left)
+{
+    if(left >= s.size()) return true;
+
+    if(s[left] == s[(s.size() - left - 1)]) return checkPalindrome1(s, left+1);
+
+    return false;
+}
+
+int NthFibonacci(int n)
+{
+    if(n <= 1) return n;
+
+    return NthFibonacci(n-1) + NthFibonacci(n-2);
+}
+
 int main()
 {
-    string s = "MADAM";
-    bool result = checkPalindrome(s, 0, 4);
-    cout << result << endl;
+
+    // cout << NthFibonacci(19);
+
+    // int result = NthFibonacci(5);
+    // cout << result << endl;
+
+    // string s = "MADAM";
+    // bool result = checkPalindrome1(s, 0);
+    // cout << result << endl;
+
+    // string s = "MAD1AM";
+    // bool result = checkPalindrome1(s, 0);
+    // cout << result << endl;
+
+    // string s = "MAD1AM";
+    // bool result = checkPalindrome(s, 0, 4);
+    // cout << result << endl;
+
+    // string s = "MADAM";
+    // bool result = checkPalindrome(s, 0, 4);
+    // cout << result << endl;
 
     // int arr0[9] = {1,2,3,4,5,6,7,8,9};
     // int arr1[10] = {0,1,2,3,4,5,6,7,8,9};
